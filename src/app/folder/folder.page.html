@@ -4,18 +4,149 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ folder }}</ion-title>
+    <ion-title slot="end">{{ curentData.date }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div id="container" *ngIf="getName('Home')">
+    <div >
+      <strong class="capitalize" style="font-size: 1000%;">{{ curentData.tmp }}°</strong>
+    <img style="height: 20vh;" [src]="curentData.icon_big" alt="image de l'etat de l'environement">
+    </div>
+    <p>Condition general</p>
+    <strong class="capitalize"> {{ curentData.condition }}</strong>
+    <p>Vent</p>
+    <div>
+      <p style="color: #fff;">
+         Vitesse <strong class="capitalize">{{ curentData.wnd_spd }} </strong>Km/H  |  Ditection <strong class="capitalize">{{ curentData.wnd_dir }}</strong>
+      </p>
+    </div>
+    <p>Pression Atmospherique</p>
+    <strong class="capitalize"> {{ curentData.pressure }} Pa</strong>
+    <p>Humidite de l'aire </p>
+    <strong class="capitalize"> {{ curentData.humidity }} %</strong>
   </div>
+  <div id="container" *ngIf="getName('Lasthour')">
+    <div >
+      <strong class="capitalize" style="font-size: 1000%;">{{ curentData.tmp }}°</strong>
+    <img style="height: 20vh;" [src]="curentData.icon_big" alt="image de l'etat de l'environement">
+    </div>
+    <p>Condition general</p>
+    <strong class="capitalize"> {{ curentData.condition }}</strong>
+    <p>Vent</p>
+    <div>
+      <p style="color: #fff;">
+         Vitesse <strong class="capitalize">{{ curentData.wnd_spd }} </strong>Km/H  |  Ditection <strong class="capitalize">{{ curentData.wnd_dir }}</strong>
+      </p>
+    </div>
+    <p>Pression Atmospherique</p>
+    <strong class="capitalize"> {{ curentData.pressure }} Pa</strong>
+    <p>Humidite de l'aire </p>
+    <strong class="capitalize"> {{ curentData.humidity }} %</strong>
+    
+  </div>
+  <div id="container" *ngIf="getName('Nexthour')">
+    <div >
+      <strong class="capitalize" style="font-size: 1000%;">{{ curentData.tmp }}°</strong>
+    <img style="height: 20vh;" [src]="curentData.icon_big" alt="image de l'etat de l'environement">
+    </div>
+    <p>Condition general</p>
+    <strong class="capitalize"> {{ curentData.condition }}</strong>
+    <p>Vent</p>
+    <div>
+      <p style="color: #fff;">
+         Vitesse <strong class="capitalize">{{ curentData.wnd_spd }} </strong>Km/H  |  Ditection <strong class="capitalize">{{ curentData.wnd_dir }}</strong>
+      </p>
+    </div>
+    <p>Pression Atmospherique</p>
+    <strong class="capitalize"> {{ curentData.pressure }} Pa</strong>
+    <p>Humidite de l'aire </p>
+    <strong class="capitalize"> {{ curentData.humidity }} %</strong>
+  </div>
+  <div id="container" *ngIf="getName('Next4days')">
+    <ion-grid style="display: flex; flex-wrap: wrap; padding: 5px; justify-content: space-around;">
+      <ion-row style="border: 1px solid rgb(176, 223, 49);">
+        <ion-col>
+          <strong class="capitalize"> {{ nextcurentData.day_long }}</strong>
+          <div>
+            <img style="height: 20vh;" [src]="nextcurentData.icon_big" alt="image de l'etat de l'environement">
+    <p>Condition general</p>
+    <strong class="capitalize"> {{ nextcurentData.condition }}</strong>
+    
+    <p>temperatures </p>
+    <p style="color: #fff;">
+      min <strong class="capitalize"> {{ nextcurentData.tmin }} °C  </strong>
+      |  max <strong class="capitalize"> {{ nextcurentData.tmax }} °C</strong>
+    </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border: 1px solid rgb(176, 223, 49);">
+        <ion-col>
+          <strong class="capitalize"> {{ next2curentData.day_long }}</strong>
+          <div>
+            <img style="height: 20vh;" [src]="next2curentData.icon_big" alt="image de l'etat de l'environement">
+    <p>Condition general</p>
+    <strong class="capitalize"> {{ next2curentData.condition }}</strong>
+    
+    <p>temperatures </p>
+    <p style="color: #fff;">
+      min <strong class="capitalize"> {{ next2curentData.tmin }} °C  </strong>
+      |  max <strong class="capitalize"> {{ next2curentData.tmax }} °C</strong>
+    </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border: 1px solid rgb(176, 223, 49);">
+        <ion-col>
+          <strong class="capitalize"> {{ next3curentData.day_long }}</strong>
+          <div>
+            <img style="height: 20vh;" [src]="next3curentData.icon_big" alt="image de l'etat de l'environement">
+    <p>Condition general</p>
+    <strong class="capitalize"> {{ next3curentData.condition }}</strong>
+    
+    <p>temperatures </p>
+    <p style="color: #fff;">
+      min <strong class="capitalize"> {{ next3curentData.tmin }} °C  </strong>
+      |  max <strong class="capitalize"> {{ next3curentData.tmax }} °C</strong>
+    </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border: 1px solid rgb(176, 223, 49);">
+        <ion-col>
+          <strong class="capitalize"> {{ next4curentData.day_long }}</strong>
+          <div>
+            <img style="height: 20vh;" [src]="next4curentData.icon_big" alt="image de l'etat de l'environement">
+    <p>Condition general</p>
+    <strong class="capitalize"> {{ next4curentData.condition }}</strong>
+    
+    <p>temperatures </p>
+    <p style="color: #fff;">
+      min <strong class="capitalize"> {{ next4curentData.tmin }} °C  </strong>
+      |  max <strong class="capitalize"> {{ next4curentData.tmax }} °C</strong>
+    </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </div>
+  <div id="container" *ngIf="getName('Information')">
+    <p>ce travail a ete realiser par : </p>
+    <strong class="capitalize"> CHOUDJA ALEX Decker</strong>
+    <p>dans le cadre de cour de developpement web mobile 2022 Management des solution digital et data.
+      pour realiser cette application de meteo nous avons utiliser l'api de prevision meteo 
+    </p>
+    <p><a target="_blank" rel="noopener noreferrer" href="https://www.prevision-meteo.ch">prevision meteo site</a></p>
+    <p><a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">Documentation ionic Angular</a></p>
+  </div>
+  
 </ion-content>
